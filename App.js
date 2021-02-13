@@ -1,14 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './components/HomeScreen';
+import PlayerView from './components/PlayerView'
 
-export default function App() {
+const Stack = createStackNavigator();
+
+export default function App({ navigation }) {
   return (
-    <View style={styles.container}>
-      <HomeScreen/>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initial>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Player Info"
+          component={PlayerView}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
