@@ -15,7 +15,7 @@ const HomeScreen = () => {
     }, [])
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <SearchBar/>
       <ViewPlayers
         players={playerList}
@@ -27,3 +27,14 @@ const HomeScreen = () => {
 
 
 export default HomeScreen
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+    // backgroundColor: '#FFFFFF',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // padding: 10
+  },
+
+})
