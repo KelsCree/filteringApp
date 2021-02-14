@@ -78,7 +78,6 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
     if (filters.age) filteredPlayers = filteredPlayers.filter(player => player.age == filters.age)
     if (filters.state) filteredPlayers = filteredPlayers.filter(player => player.state == filters.state)
 
-    console.log(filteredPlayers)
     setDisplayedPlayers(filteredPlayers)
   }
 
