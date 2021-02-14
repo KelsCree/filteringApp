@@ -39,7 +39,7 @@ const ViewPlayers = ({ players }) => {
             style={styles.list}
             data={players}
             renderItem={renderItem}
-            keyExtractor={(item) => {
+            keyExtractor={(item, index) => {
               return item.id;
             }}
           />
