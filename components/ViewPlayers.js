@@ -52,6 +52,7 @@ export default ViewPlayers
 
 const styles = StyleSheet.create({
   container: {
+    flex: 5,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
