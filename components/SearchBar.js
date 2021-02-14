@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Selection } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -32,10 +32,13 @@ const SearchBar = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Filter Players</Text>
-      {filtersVisible
-      ?<FontAwesomeIcon style={styles.icon} icon={ faChevronDown } size={23} color='#FFFFFF'/>
-      :<FontAwesomeIcon style={styles.icon} icon={ faChevronRight } size={23} color='#FFFFFF'/>}
+      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}onPress={() => setFiltersVisible(!filtersVisible)}>
+        <Text style={styles.heading}>Filter Players</Text>
+        {filtersVisible
+        ?
+        <FontAwesomeIcon style={styles.icon} icon={ faChevronDown } size={23} color='#FFFFFF'/>
+        :<FontAwesomeIcon style={styles.icon} icon={ faChevronRight } size={23} color='#FFFFFF'/>}
+      </TouchableOpacity>
       {filtersVisible
       ?<View style={styles.pickerContainer}>
         <Picker  style={styles.picker}>
