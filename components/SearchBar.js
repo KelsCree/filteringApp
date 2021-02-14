@@ -5,10 +5,14 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { states } from '../states'
 
-const SearchBar = () => {
+const SearchBar = ({ players, setDisplayedPlayers }) => {
 
   const ages = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
   const [filtersVisible, setFiltersVisible] = useState(true)
+  const [genderFilter, setGenderFilter] = useState({filter: false, gender: ''})
+  const [statusFilter, setStatusFilter] = useState({filter: false, status: ''})
+  const [stateFilter, setStateFilter] = useState({filter: false, state: ''})
+  const [ageFilter, setAgeFilter] = useState({filter: false, age: ''})
 
   const stateOption = (states) => {
     return states.map((state, i) => {

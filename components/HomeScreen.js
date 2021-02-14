@@ -7,18 +7,27 @@ const HomeScreen = () => {
 
   const baseURL = 'https://dii-test.s3.amazonaws.com/players.json'
   const [playerList, setPlayerList] = useState([])
+  const [displayedPlayers, setDisplayedPlayers] = useState([])
 
   useEffect(() => {
     fetch(baseURL)
         .then(result => result.json())
-        .then(data => setPlayerList(data))
+        .then(data => setInitialPlayers(data))
     }, [])
+
+  const setInitialPlayers = (data) => {
+    setPlayerList(data)
+    setDisplayedPlayers(data)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <SearchBar/>
+      <SearchBar
+        playerList={playerList}
+        setDisplayedPlayers={setDisplayedPlayers}
+      />
       <ViewPlayers
-        players={playerList}
+        displayedPlayers={displayedPlayers}
       />
     </SafeAreaView>
   )

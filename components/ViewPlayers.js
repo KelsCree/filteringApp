@@ -2,9 +2,9 @@ import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
-const ViewPlayers = ({ players }) => {
+const ViewPlayers = ({ displayedPlayers }) => {
 
-  console.log(players)
+  console.log((displayedPlayers))
 
   const Item = ({ item }) => (
     <TouchableOpacity
@@ -37,7 +37,7 @@ const ViewPlayers = ({ players }) => {
       <SafeAreaView style={styles.listContainer}>
           <FlatList
             style={styles.list}
-            data={players}
+            data={displayedPlayers}
             renderItem={renderItem}
             keyExtractor={(item, index) => {
               return item.id;
