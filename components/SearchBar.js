@@ -70,17 +70,15 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
   }
 
   const filterPlayers = () => {
-    let filterKeys = []
-    for (var key in filters) {
-      if (filters[key] !== "") {
-        filterKeys.push(key)
-      }
-    }
-    console.log(filterKeys)
-    if (filterKeys.length < 1) setDisplayedPlayers(playerList)
-    let filteredPlayers = filterKeys.forEach(filterKey => {
-        return playerList.filter(player => player.filterKey == filters.filterKey)
-    })
+
+    let filteredPlayers = playerList
+
+    if (filters.gender) filteredPlayers = filteredPlayers.filter(player => player.gender == filters.gender)
+    if (filters.status) filteredPlayers = filteredPlayers.filter(player => player.status == filters.status)
+    if (filters.age) filteredPlayers = filteredPlayers.filter(player => player.age == filters.age)
+    if (filters.state) filteredPlayers = filteredPlayers.filter(player => player.state == filters.state)
+
+    console.log(filteredPlayers)
     setDisplayedPlayers(filteredPlayers)
   }
 
