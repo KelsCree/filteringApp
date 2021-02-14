@@ -4,7 +4,6 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 const ViewPlayers = ({ displayedPlayers }) => {
 
-  console.log((displayedPlayers))
 
   const Item = ({ item }) => (
     <TouchableOpacity

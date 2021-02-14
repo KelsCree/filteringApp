@@ -12,18 +12,19 @@ const HomeScreen = () => {
   useEffect(() => {
     fetch(baseURL)
         .then(result => result.json())
-        .then(data => setInitialPlayers(data))
+        .then(data => setInitialPlayerLists(data))
     }, [])
 
-  const setInitialPlayers = (data) => {
-    setPlayerList(data)
-    setDisplayedPlayers(data)
-  }
+    const setInitialPlayerLists = (data) => {
+      setPlayerList(data)
+      setDisplayedPlayers(data)
+    }
 
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
         playerList={playerList}
+        displayedPlayers={displayedPlayers}
         setDisplayedPlayers={setDisplayedPlayers}
       />
       <ViewPlayers
