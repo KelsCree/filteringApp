@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import ViewPlayers from './ViewPlayers'
 import SearchBar from './SearchBar'
 
@@ -41,10 +41,6 @@ export default HomeScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1
-    // backgroundColor: '#FFFFFF',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // padding: 10
-  },
+  }
 
 })

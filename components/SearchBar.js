@@ -16,18 +16,6 @@ const SearchBar = ({ setDisplayedPlayers, playerList }) => {
     state: ""
   })
 
-  const ageOption = (ages) => {
-    return ages.map((age, i) => {
-      return <Picker.Item
-                key={age.id}
-                label={age}
-                value={age}
-            />
-    })
-  }
-
-  console.log(filters)
-
   const handleGenderFilter = ({ itemValue }) => {
     let newFilters = filters
     newFilters.gender = itemValue
@@ -141,7 +129,6 @@ export default SearchBar
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 3,
     flexDirection: 'column',
     backgroundColor: '#1D3557',
     alignItems: 'center',
