@@ -26,7 +26,7 @@ const ViewPlayers = ({ displayedPlayers }) => {
   }
 
   const selectPlayer = () => {
-
+    
   }
 
 
@@ -38,7 +38,7 @@ const ViewPlayers = ({ displayedPlayers }) => {
             style={styles.list}
             data={displayedPlayers}
             renderItem={renderItem}
-            keyExtractor={(item, index) => {
+            keyExtractor={(item) => {
               return item.id;
             }}
           />

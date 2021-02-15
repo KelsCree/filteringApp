@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { states } from '../states'
 
-const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
+const SearchBar = ({ setDisplayedPlayers, playerList }) => {
 
-  const ages = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
   const [filtersVisible, setFiltersVisible] = useState(true)
-  // const [genderFilter, setGenderFilter] = useState({filter: false, gender: ''})
-  // const [statusFilter, setStatusFilter] = useState({filter: false, status: ''})
-  // const [stateFilter, setStateFilter] = useState({filter: false, state: ''})
-  // const [ageFilter, setAgeFilter] = useState({filter: false, age: ''})
   const [filters, setFilters] = useState({
     gender: "",
     age: "",
@@ -20,25 +16,16 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
     state: ""
   })
 
-  const stateOption = (states) => {
-    return states.map((state, i) => {
-      return <Picker.Item
-                key={i}
-                label={state.abbreviation}
-                value={state.abbreviation}
-            />
-    })
-  }
-
   const ageOption = (ages) => {
     return ages.map((age, i) => {
       return <Picker.Item
-                key={i}
+                key={age.id}
                 label={age}
                 value={age}
             />
     })
   }
+
   console.log(filters)
 
   const handleGenderFilter = ({ itemValue }) => {
@@ -95,8 +82,8 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
       ?<View style={styles.pickerContainer}>
         <Picker
           style={styles.picker}
-          // selectedValue={filters.gender}
-          onValueChange={(itemValue, itemIndex) =>
+          selectedValue={filters.gender}
+          onValueChange={(itemValue) =>
             handleGenderFilter({ itemValue })}>
           <Picker.Item label="" value=""/>
           <Picker.Item label="Male" value="male"/>
@@ -104,8 +91,8 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
         </Picker>
         <Picker
           style={styles.picker}
-          // selectedValue={filters.status}
-          onValueChange={(itemValue, itemIndex) =>
+          selectedValue={filters.status}
+          onValueChange={(itemValue) =>
             handleStatusFilter({ itemValue })}>
           <Picker.Item label="" value=""/>
           <Picker.Item label="Active" value="active"/>
@@ -113,19 +100,36 @@ const SearchBar = ({ displayedPlayers, setDisplayedPlayers, playerList }) => {
         </Picker>
         <Picker
           style={styles.picker}
-          // selectedValue={filters.age}
-          onValueChange={(itemValue, itemIndex) =>
+          selectedValue={filters.age}
+          onValueChange={(itemValue) =>
             handleAgeFilter({ itemValue })}>
           <Picker.Item label="" value=""/>
-          {ageOption(ages)}
-
-        </Picker>
+          <Picker.Item label="4" value="4"/>
+          <Picker.Item label="5" value="5"/>
+          <Picker.Item label="6" value="6"/>
+          <Picker.Item label="7" value="7"/>
+          <Picker.Item label="8" value="8"/>
+          <Picker.Item label="9" value="9"/>
+          <Picker.Item label="10" value="10"/>
+          <Picker.Item label="11" value="11"/>
+          <Picker.Item label="12" value="12"/>
+          <Picker.Item label="13" value="13"/>
+          <Picker.Item label="14" value="14"/>
+          <Picker.Item label="15" value="15"/>
+          <Picker.Item label="16" value="16"/>
+          <Picker.Item label="17" value="17"/>
+          </Picker>
         <Picker
           style={styles.picker}
-          // selectedValue={filters.state}
-          onValueChange={(itemValue, itemIndex) =>
+          selectedValue={filters.state}
+          onValueChange={(itemValue) =>
             handleStateFilter({ itemValue })}>
-          {stateOption(states)}
+            {states.map((state, i) => {
+              return <Picker.Item
+                key={i}
+                label={state.abbreviation}
+                value={state.abbreviation}
+            />})}
         </Picker>
       </View>
       : null}
