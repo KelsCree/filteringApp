@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     shadowOpacity: .4
   },
   listContainer: {
+    flex: 1,
     width: '80%',
     padding: 10,
     backgroundColor: '#FFFFFF'

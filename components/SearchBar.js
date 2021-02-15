@@ -141,7 +141,7 @@ export default SearchBar
 
 const styles = StyleSheet.create({
   container: {
-    flex: 3,
+    // flex: 3,
     flexDirection: 'column',
     backgroundColor: '#1D3557',
     alignItems: 'center',
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     flex: 1,
-    // height: 80,
+    height: 150,
     width: 80,
     margin: 5,
     backgroundColor: '#FFFFFF',
@@ -166,7 +166,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     margin: 10,
-    flex: 1
     
   }
 })
